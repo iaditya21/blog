@@ -8,19 +8,17 @@ import techBlog.model.Post;
 import techBlog.service.PostService;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 @Controller
-public class homeController {
+public class postController {
+
     @Autowired
     private PostService post;
 
-    @RequestMapping("/")
-    public String getAllPost(Model model){
-
-        ArrayList<Post> posts=post.getAllPost();
-
+    @RequestMapping("posts")
+    public String getPost(Model model){
+        ArrayList<Post> posts=post.getOnePost();
         model.addAttribute("posts",posts);
-        return "index";
+        return "posts";
     }
 }
