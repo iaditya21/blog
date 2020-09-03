@@ -16,11 +16,8 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepo;
-    public boolean login(User user) {
-        if(user.getUsername().equalsIgnoreCase("ishan")){
-            return true;
-        }
-        return false;
+    public User login(User user) {
+       return userRepo.checkUser(user.getUsername(),user.getPassword());
     }
 
     public void registerUser(User user){
